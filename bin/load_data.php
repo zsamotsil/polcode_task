@@ -61,6 +61,8 @@ $output->writeln("<info>Resetting project</info>");
 
 $fs->remove(sprintf('%s/web/uploads/media', $rootDir));
 $fs->mkdir(sprintf('%s/web/uploads/media', $rootDir));
+
+$output->writeln("<info>Setting symlink app.php => index.php</info>");
 $fs->symlink(sprintf('%s/web/app.php', $rootDir), sprintf('%s/web/index.php', $rootDir));
 
 
