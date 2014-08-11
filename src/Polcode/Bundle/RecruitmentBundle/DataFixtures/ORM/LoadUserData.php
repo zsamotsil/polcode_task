@@ -39,15 +39,13 @@ class LoadUserData extends AbstractFixture implements ContainerAwareInterface, O
 
         $manager->updateUser($user);
 
-        // normal user
+        // normal admin user
         $user = $manager->createUser();
         $user->setUsername('user');
         $user->setEmail('user@polcode.pl');
         $user->setPlainPassword('user');
         $user->setEnabled(true);
-        $user->setRoles(array(
-            'ROLE_SONATA_ADMIN', 'ROLE_ADMIN', 'ROLE_USER'
-        ));
+        $user->addRole('ROLE_SONATA_ADMIN');
         $user->setLocked(false);
 
         $manager->updateUser($user);

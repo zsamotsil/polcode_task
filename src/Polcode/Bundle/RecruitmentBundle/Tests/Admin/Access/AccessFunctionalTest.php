@@ -39,6 +39,7 @@ class AccessFunctionalTest extends WebTestCase
 
     public function testLoginAdmin()
     {
+
         $this->loadFixtures(array(
             'Polcode\Bundle\RecruitmentBundle\DataFixtures\ORM\LoadUserData',
             'Polcode\Bundle\RecruitmentBundle\DataFixtures\ORM\LoadProjectData'
@@ -52,7 +53,41 @@ class AccessFunctionalTest extends WebTestCase
 
         $crawler = $client->request('GET', '/admin/dashboard');
 
-        $this->assertTrue($crawler->filter('html:contains("Witaj programisto!")')->count() > 0);
+        $content1 = $this->fetchContent('/admin/polcode/recruitment/employee/list', false, true);
+
+        $content2 = $this->fetchContent('/admin/polcode/recruitment/am/list', false, true);
+
+        $content2 = $this->fetchContent('/admin/polcode/recruitment/project/list', false, true);
+
+    }
+
+    public function testSonataUserCanLogin()
+    {
+        $this->loadFixtures(array(
+                'Polcode\Bundle\RecruitmentBundle\DataFixtures\ORM\LoadUserData',
+                'Polcode\Bundle\RecruitmentBundle\DataFixtures\ORM\LoadProjectData'
+            ));
+
+        $user = $this->userManager->findUserByUsername('user');
+
+        $this->assertNotNull($user, "W bazie brakuje użytkownika user");
+
+        $this->loginAs($user, 'user');
+
+        $client = $this->makeClient();
+
+        $content1 = $client->request("GET",'/admin/polcode/recruitment/employee/list');
+
+        $this->assertEquals(403, $client->getResponse()->getStatusCode());
+
+        $content2 = $client->request("GET", '/admin/polcode/recruitment/am/list');
+
+        $this->assertEquals(403, $client->getResponse()->getStatusCode());
+
+        $content2 = $client->request("GET", '/admin/polcode/recruitment/project/list');
+
+        $this->assertEquals(403, $client->getResponse()->getStatusCode());
+
 
     }
 
@@ -72,9 +107,11 @@ class AccessFunctionalTest extends WebTestCase
 
         $client = $this->makeClient();
 
-        $crawler = $client->request('GET', '/admin/dashboard');
+        $content1 = $this->fetchContent('/admin/polcode/recruitment/employee/list', false, true);
 
-        $this->assertTrue($crawler->filter('<span>Recruitment</span>")')->count() > 0);
+        $content2 = $this->fetchContent('/admin/polcode/recruitment/am/list', false, true);
+
+        $content2 = $this->fetchContent('/admin/polcode/recruitment/project/list', false, true);
 
     }
 

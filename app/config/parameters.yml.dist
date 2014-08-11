@@ -4,7 +4,7 @@ parameters:
     database_host: 127.0.0.1
     database_name: polcode_recruitment
     database_user: root
-    database_password: lukasz.123
+    database_password: polcode
     mailer_transport: smtp
     mailer_host: localhost
     mailer_user: null

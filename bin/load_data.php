@@ -23,16 +23,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 $fs = new \Symfony\Component\Filesystem\Filesystem;
 $output = new \Symfony\Component\Console\Output\ConsoleOutput();
 
-// does the parent directory have a parameters.yml file
-if (is_file(__DIR__.'/../../parameters.demo.yml')) {
-    $fs->copy(__DIR__.'/../../parameters.demo.yml', __DIR__.'/../app/config/parameters.yml', true);
-}
-
-if (!is_file(__DIR__.'/../app/config/parameters.yml')) {
-    $output->writeln('<error>no default apps/config/parameters.yml file</error>');
-
-    exit(1);
-}
 
 /**
  * @param $commands
@@ -67,12 +57,12 @@ if (defined('PHP_BINARY')) {
     $bin = PHP_BINARY;
 }
 
-$output->writeln("<info>Resetting demo</info>");
+$output->writeln("<info>Resetting project</info>");
 
 $fs->remove(sprintf('%s/web/uploads/media', $rootDir));
 $fs->mkdir(sprintf('%s/web/uploads/media', $rootDir));
+$fs->symlink(sprintf('%s/web/app.php', $rootDir), sprintf('%s/web/index.php', $rootDir));
 
-$fs->copy(__DIR__.'/../src/Sonata/Bundle/DemoBundle/DataFixtures/data/robots.txt', __DIR__.'/../web/app/robots.txt', true);
 
 $success = execute_commands(array(
     'rm -rf ./app/cache/*',
@@ -83,12 +73,7 @@ $success = execute_commands(array(
     $bin . ' ./app/console doctrine:database:create',
     $bin . ' ./app/console doctrine:schema:update --force',
     $bin . '  -d memory_limit=1024M -d max_execution_time=600 ./app/console doctrine:fixtures:load --verbose --env=dev --no-debug',
-    $bin . ' ./app/console sonata:news:sync-comments-count',
-    $bin . ' ./app/console sonata:page:update-core-routes --site=all --no-debug',
-    $bin . ' ./app/console sonata:page:create-snapshots --site=all --no-debug',
     $bin . ' ./app/console assets:install --symlink web',
-    $bin . ' ./app/console sonata:admin:setup-acl',
-    $bin . '  -d memory_limit=1024M ./app/console sonata:admin:generate-object-acl'
 ), $output);
 
 if (!$success) {

@@ -1,17 +1,5 @@
-Sonata Standard Edition
+Polcode Recruitment Project
 =======================
-
-What's inside?
---------------
-
-Sonata Standard Edition comes pre-configured with the following bundles:
-
-* Bundles from Symfony Standard distribution
-* Sonata Admin Bundles: Admin and Doctrine ORM Admin
-* Sonata Ecommerce Bundles: Payment, Customer, Invoice, Order and Product
-* Sonata Foundation Bundles: Core, Notification, Formatter, Intl, Cache, Seo and Easy Extends
-* Sonata Feature Bundles: Page, Media, News, User, Block, Timeline
-* Api Bundles: FOSRestBundle, BazingaHateoasBundle, NelmioApiDocBundle and JMSSerializerBundle
 
 Installation
 ------------
@@ -20,18 +8,13 @@ Get composer:
 
     curl -s http://getcomposer.org/installer | php
 
-Run the following command for the 2.3 branch:
-
-    php composer.phar create-project sonata-project/sandbox:2.3.x-dev
-
-Or to get the 2.3 develop branch:
+Run the following command:
 
     php composer.phar create-project sonata-project/sandbox:dev-2.3-develop
 
 The installation process used Incenteev's ParameterHandler to handle parameters.yml configuration. With the current
 installation, it is possible to use environment variables to configure this file:
 
-    DATABASE_NAME=sonata DATABASE_USER=root DATABASE_PASSWORD="" php composer.phar create-project sonata-project/sandbox:dev-2.3-develop
 
 Reset the data
 --------------
@@ -54,29 +37,13 @@ Now open your browser and go to http://localhost:9090/
 Tests
 -----
 
-### Functional testing
+To run tests use phpunit:
 
-To run the Behat tests, copy the default configuration file and adjust the base_url to your needs
-
-    # behat.yml
-    imports:
-        - behat.yml.dist
-
-    # Overwrite only the config you want to change here
-
-You can now run the tests suite using the following command
-
-    bin/qa_behat.sh
-
-To get more informations about Behat, feel free to check [the official documentation][link_behat].
+phpunit -c app/
 
 
-### Unit testing
+Copyright
+-----
 
-To run the Sonata test suites, you can run the command:
-
-    bin/qa_client_ci.sh
-
-Enjoy!
-
-[link_behat]: http://docs.behat.org "the official Behat documentation"
+This project skeleton was made based on sonata sandbox project https://github.com/sonata-project/sandbox/ - to have all sonata functionality configured correctly. Also for new bootstrap theme which is not
+ enabled by default
