@@ -1,3 +1,7 @@
+polcode_recruitment:
+    resource: "@PolcodeRecruitmentBundle/Resources/config/routing.xml"
+    prefix:   /
+
 # Internal routing configuration to handle ESI
 #_internal:
 #   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
@@ -14,10 +18,5 @@ _front:
 _admin:
     resource: routing_admin.yml
     prefix:   /admin
-
-_api:
-    resource: routing_api.yml
-    prefix:   /api
-
 
 

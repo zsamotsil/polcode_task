@@ -18,7 +18,7 @@ sonata_user:
         user_group:           fos_user_user_group
 
     impersonating:
-        route:                page_slug
+        route:                ~
         parameters:           { path: / }
 
     google_authenticator:

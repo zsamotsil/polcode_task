@@ -1,0 +1,93 @@
+{% extends sonata_block.templates.block_base %}
+
+{% block block %}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Witaj programisto!</h3>
+    </div>
+    <div class="panel-body">
+        <p>Przed Tobą zadanie przygotowane z myślą o Twoich umiejętnościach Symfony. Nie zamierzamy sprawdzać czy potrafisz skonfigurować symofny i bundle za pomocą
+            composera. Proponujemy jednak żebyś rozpoczął od istniejącego projektu. Przed tobą świeżutki projekt korzystający z
+            <a href="http://sonata-project.org/bundles/admin/2-2/doc/index.html"></a><strong>SonataAdminBundle</strong></a> oraz kilku innych popularnych bundli.
+            Zadanie ma na celu sprawdzenie Twojej znajomości frameworka Symfony w wersji 2.3 czyli wersji LTS.
+        </p>
+        <p>
+            Twoje zadanie będzie polegało na stworzeniu prostego modułu <em>Pracownika</em> dla działu HR.
+        </p>
+
+        <p>Nie martw się o kwestie konfiguracyjne ponieważ podstawowe encje zostały stworzone, tak samo jak konfiguracja panelu administracyjnego</p>
+
+        <h2>Założenia do zrealizowania</h2>
+        
+        <h3>Każdy pracownik ma:</h3>
+        
+        <ul>
+            <li>Przypisanego AM'a (<em>Account Managera</em>)</li>
+            <li>Przypisany przynajmniej jeden projekt - domyślnie będzie to projekt INTERNAL (pole <code>isInternal=1</code>)</li>
+            <li>pola <code>firstName</code>, <code>lastName</code>, <code>email</code> obowiązkowo wypełnione <em>PRAWIDŁOWYMI</em> danymi</li>
+        </ul>
+        
+        <h3>Każdy projekt ma:</h3>
+        
+        <ul>
+            <li>obowiązkową nazwę</li>
+            <li>Przypisanego AM'a prowadzącego</li>
+            <li>Daty określające rozpoczęcie i zakończenie projektu. Data zakończenia nie zawsze musi być ustawiona.</li>
+            <li>Wartości domyślne - czyli jeśli np. jeśli rozpoczęcie nie jest zdefiniowane za pomocą pola formularza, przypisujemy bieżącą datę</li>
+            <li>Każdy projekt musi jawnie określać czy jest projektem wewnętrznym czy zewnętrznym <code>isInternal = 0|1</code></li>
+        </ul>
+        
+        <h3>Założenia ogólne</h3>
+        
+        <ul>
+            <li>Na zadanie masz <strong>90 minut</strong> + około <em>10-15 minut</em> na konfiguracje projektu</li>
+            <li>W projekcie korzystamy z plików konfiguracyjnych w formacie XML (folder <code>Resource</code>)</li>
+            <li>Sprawdzenie poprawności danych przed dodaniem encji do bazy</li>
+            <li>Ustawienie właściwych relacji między pracownikiem - AM'em - projektem</li>
+            <li>Aktualizacja klas istniejących klas <code>Admin/*Admin.php</code> o nowe pola po dodaniu nowych relacji</li>
+            <li>Przydziel dostęp do sekcji działu Recruitment tylko dla ROLI <code>POLCODE_HR</code>.
+                Zapoznaj się z http://sonata-project.org/bundles/admin/master/doc/reference/security.html ponieważ w ramach tej roli
+                muszą zostać dodane uprawnienia związane z sekcjami administracyjnymi <strong>EMPLOYEE</strong>, <strong>AM</strong>, <strong>PROJECT</strong>.
+            </li>
+            <li>Stwórz dodatkowego użytkownika w ramach fixturesów <code>src/Polcode/Bundle/RecruitmentBundle/DataFixtures/ORM/LoadUserData.php</code>.
+                Nadaj mu wcześniej utworzoną rolę <code>POLCODE_HR</code> i sprawdź czy dostęp do zasobów sekcji Recruitment jest możliwy</li>
+            <li>
+                Stwórz kontroler <code>ApiController</code> w ramach PolcodeRecruitmentBundle który dla <code>/api</code> zwróci listę
+                pracowników w formacie <code>JSON</code>. Dla <code>/api/{am_id}</code> zwróci pracowników danego AM'a.
+            </li>
+        </ul>
+        
+        <h3>Sprawdzenie poprawności:</h3>
+        <ul>
+            <li>W folderze <code>src/Polcode/RecruitmentBundle/Tests/Validator</code> zapisane są UnitTesty które będą sprawdzać czy zrobiłeś to o co nam chodziło.</li>
+            <li>Jeśli chcesz też to sprawdzić - co jest zresztą zgodne z metodologią <em>TDD (Test Driven Development)</em> uruchom <code>phpunit -c app/</code>
+            z poziomu folderu projektu. Musisz mieć zainstalowaną biblioteke <a href="http://phpunit.de/getting-started.html"><strong>PHPUnit</strong></a>
+            </li>
+            <li>Jeśli projekt jest skończony commitujemy zmiany ze swojego lokalnego repozytorium i pushujemy do swojego publicznego repozytorium.</li>
+        </ul>
+
+
+        <h3>Podpowiedzi:</h3>
+
+        <ul>
+            <li>jeśli masz problem z doborem ról dla <code>POLCODE_HR</code> pamiętaj, że są one robione w konwencji - ROLE_[NAZWA_USLUGI_ADMINA]_[ROLA_BAZOWA],
+            <br />gdzie role bazowe to [LIST,VIEW,CREATE,EDIT,DELETE,EXPORT] czyli np. ROLE_POLCODE_RECRUITMENT_ADMIN_EMPLOYEE_LIST</li>
+            <li>
+                Jeśli nie wiesz do końca czy coś jest dobrze zrobione - podpieraj się testami - w końcu to na ich podstawie będziesz oceniany
+            </li>
+            <li>Pamiętaj że role w Symfony nie wczytują się za każdym razem tylko przy zalogowaniu, więc jeśli zmieniłeś/dodałeś rolę do aktywnego usera to przeładuj użytkownika.</li>
+            <li>
+                RTM
+            </li>
+            <li>Istnieje świetny bundle do serializacji danych do formatu XML i JSON czy wiesz jaki? (SonataAdminBundle ma go w zależnościach)</li>
+        </ul>
+
+        <blockquote class="text-right">
+            <p>Powodzenia !!!<br />
+            Zespół POLCODE</p>
+        </blockquote>
+        
+    </div>
+</div>
+{% endblock %}

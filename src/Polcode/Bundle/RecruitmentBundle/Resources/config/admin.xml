@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="polcode.recruitment.admin.employee.class">Polcode\Bundle\RecruitmentBundle\Admin\EmployeeAdmin</parameter>
+        <parameter key="polcode.recruitment.admin.am.class">Polcode\Bundle\RecruitmentBundle\Admin\AMAdmin</parameter>
+        <parameter key="polcode.recruitment.admin.project.class">Polcode\Bundle\RecruitmentBundle\Admin\ProjectAdmin</parameter>
+        <parameter key="polcode.recruitment.entity.employee.class">Polcode\Bundle\RecruitmentBundle\Entity\Employee</parameter>
+        <parameter key="polcode.recruitment.entity.am.class">Polcode\Bundle\RecruitmentBundle\Entity\AM</parameter>
+        <parameter key="polcode.recruitment.entity.project.class">Polcode\Bundle\RecruitmentBundle\Entity\Project</parameter>
+    </parameters>
+
+    <services>
+        <service id="polcode.recruitment.admin.employee" class="%polcode.recruitment.admin.employee.class%">
+            <tag name="sonata.admin" manager_type="orm" group="polcode_recruitment" label="Employees" label_catalogue="PolcodeRecruitmentBundle" label_translator_strategy="sonata.admin.label.strategy.underscore" />
+            <argument />
+            <argument>%polcode.recruitment.entity.employee.class%</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>PolcodeRecruitmentBundle</argument>
+            </call>
+        </service>
+        <service id="polcode.recruitment.admin.am" class="%polcode.recruitment.admin.am.class%">
+            <tag name="sonata.admin" manager_type="orm" group="polcode_recruitment" label="Account Managers" label_catalogue="PolcodeRecruitmentBundle" label_translator_strategy="sonata.admin.label.strategy.underscore" />
+            <argument />
+            <argument>%polcode.recruitment.entity.am.class%</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>PolcodeRecruitmentBundle</argument>
+            </call>
+        </service>
+        <service id="polcode.recruitment.admin.project" class="%polcode.recruitment.admin.project.class%">
+            <tag name="sonata.admin" manager_type="orm" group="polcode_recruitment" label="Projects" label_catalogue="PolcodeRecruitmentBundle" label_translator_strategy="sonata.admin.label.strategy.underscore" />
+            <argument />
+            <argument>%polcode.recruitment.entity.project.class%</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>PolcodeRecruitmentBundle</argument>
+            </call>
+        </service>
+
+    </services>
+
+</container>

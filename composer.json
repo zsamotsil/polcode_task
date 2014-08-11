@@ -68,7 +68,7 @@
         "friendsofsymfony/comment-bundle": "~2.0@dev",
 
         "dflydev/markdown": "~1.0",
-        "simplethings/entity-audit-bundle": "~0.5",
+        "simplethings/entity-audit-bundle": "dev-master",
         "willdurand/faker-bundle": "~1.0",
 
         "mopa/bootstrap-bundle": "v3.0.0-beta3",
@@ -90,7 +90,8 @@
         "behat/mink-goutte-driver": "~1.0",
         "behat/mink": "~1.5",
         "behat/mink-browserkit-driver": "~1.1",
-        "behat/mink-selenium2-driver": "~1.1"
+        "behat/mink-selenium2-driver": "~1.1",
+        "liip/functional-test-bundle": "dev-master"
     },
 
     "scripts": {

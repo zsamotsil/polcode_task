@@ -6,6 +6,10 @@
                 <source>sonata_ecommerce</source>
                 <target>E-Commerce</target>
             </trans-unit>
+            <trans-unit id="sonata_content">
+                <source>sonata_content</source>
+                <target>Content</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

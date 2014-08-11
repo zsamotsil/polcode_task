@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="" >
+        <body>
+            <trans-unit id="polcode_recruitment">
+                <source>polcode_recruitment</source>
+                <target>Recruitment</target>
+            </trans-unit>
+            <trans-unit id="breadcrumb.link_employee_list">
+                <source>breadcrumb.link_employee_list</source>
+                <target>Employees</target>
+            </trans-unit>
+            <trans-unit id="breadcrumb.link_a_m_list">
+                <source>breadcrumb.link_a_m_list</source>
+                <target>Account Managers</target>
+            </trans-unit>
+            <trans-unit id="breadcrumb.link_project_list">
+                <source>breadcrumb.link_project_list</source>
+                <target>Projects</target>
+            </trans-unit>
+            <trans-unit id="filter.label_first_name">
+                <source>filter.label_first_name</source>
+                <target>First Name</target>
+            </trans-unit>
+            <trans-unit id="filter.label_last_name">
+                <source>filter.label_last_name</source>
+                <target>Last Name</target>
+            </trans-unit>
+            <trans-unit id="filter.label_email">
+                <source>filter.label_email</source>
+                <target>Email</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

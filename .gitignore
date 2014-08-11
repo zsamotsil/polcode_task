@@ -11,3 +11,6 @@
 /composer.lock
 /web/vendor
 /web/assetic/*[0-9]*
+/nbproject/private/
+/.idea
+/nbproject
