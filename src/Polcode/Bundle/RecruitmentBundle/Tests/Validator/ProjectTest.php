@@ -54,7 +54,7 @@ class ProjectTest extends \PHPUnit_Framework_TestCase
         $entity->setName('Some proj');
         $entity->setCreatedAt(new \DateTime());
         $entity->setEndAt(new \DateTime('+5 months'));
-        $entity->setIsInternal(true);
+        $entity->setIsInternal(false);
         $validator = Validation::createValidatorBuilder()->getValidator();
 
         $errors = $validator->validate($entity);

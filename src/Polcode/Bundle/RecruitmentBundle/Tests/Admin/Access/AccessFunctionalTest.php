@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: tworzenieweb
- * Date: 11.08.14
- * Time: 19:29
- */
 
 namespace Polcode\Bundle\RecruitmentBundle\Tests\Admin\Access;
 
@@ -12,9 +6,6 @@ namespace Polcode\Bundle\RecruitmentBundle\Tests\Admin\Access;
 use FOS\UserBundle\Doctrine\UserManager;
 use Liip\FunctionalTestBundle\Test\WebTestCase;
 
-use Symfony\Bundle\FrameworkBundle\Console\Application;
-use Symfony\Component\Console\Tester\ApplicationTester;
-use Symfony\Component\Console\Output\Output;
 
 /**
  * Class AccessFunctionalTest
@@ -101,7 +92,7 @@ class AccessFunctionalTest extends WebTestCase
 
         $hr = $this->userManager->findUserByUsername('hr');
 
-        $this->assertNotNull($hr, "W bazie brakuje użytkownika HR");
+        $this->assertNotNull($hr, "W bazie brakuje użytkownika hr");
 
         $this->loginAs($hr, 'user');
 
