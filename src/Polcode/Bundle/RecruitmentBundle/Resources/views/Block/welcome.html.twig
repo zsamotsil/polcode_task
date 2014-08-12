@@ -18,25 +18,28 @@
             Twoje zadanie będzie polegało na stworzeniu prostego modułu <em>Pracownika</em> dla działu HR.
         </p>
 
-        <p>Nie martw się o kwestie konfiguracyjne ponieważ podstawowe encje zostały stworzone, tak samo jak konfiguracja panelu administracyjnego</p>
+        <p>Nie martw się o kwestie konfiguracyjne ponieważ podstawowe encje zostały stworzone, tak samo jak konfiguracja panelu administracyjnego.
+            Cały potrzebny Ci kod znajdziesz w ramach <code>PolcodeRecruitmentBundle</code>.</p>
 
         <h2>Założenia do zrealizowania</h2>
         
-        <h3>Każdy pracownik ma:</h3>
+        <h3>Każdy pracownik musi posiadać:</h3>
         
         <ul>
             <li>Przypisanego AM'a (<em>Account Managera</em>) - Many to One</li>
             <li>Przypisany przynajmniej jeden projekt - domyślnie będzie to projekt INTERNAL (pole <code>isInternal=1</code>) - Many to Many</li>
             <li>pola <code>firstName</code>, <code>lastName</code>, <code>email</code> obowiązkowo wypełnione <em>PRAWIDŁOWYMI</em> danymi</li>
+            <li>Trzeba więc zapewnić sprawdzanie poprawności encji przed zapisem</li>
         </ul>
 
-        <h3>Każdy AM ma:</h3>
+        <h3>Każdy AM musi posiadać</h3>
 
         <ul>
             <li>pola <code>firstName</code>, <code>lastName</code>, <code>email</code> obowiązkowo wypełnione <em>PRAWIDŁOWYMI</em> danymi</li>
+            <li>Trzeba więc zapewnić sprawdzanie poprawności encji przed zapisem</li>
         </ul>
 
-        <h3>Każdy projekt ma:</h3>
+        <h3>Każdy projekt musi posiadać</h3>
         
         <ul>
             <li>obowiązkową nazwę</li>
@@ -46,7 +49,7 @@
             <li>Każdy projekt musi jawnie określać czy jest projektem wewnętrznym czy zewnętrznym <code>isInternal = 0|1</code></li>
         </ul>
         
-        <h3>Założenia ogólne</h3>
+        <h3>Założenia ogólne:</h3>
         
         <ul>
             <li>Na zadanie masz <strong>90 minut</strong> + około <em>10-15 minut</em> na konfiguracje projektu</li>
