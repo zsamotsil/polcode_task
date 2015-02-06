@@ -21,6 +21,9 @@ class ProjectAdmin extends Admin
             ->add('createdAt')
             ->add('endAt')
             ->add('id')
+            ->add('am')
+            ->add('startDate')
+            ->add('endDate')
         ;
     }
 
@@ -34,6 +37,9 @@ class ProjectAdmin extends Admin
             ->add('isInternal')
             ->add('createdAt')
             ->add('endAt')
+            ->add('am')
+            ->add('startDate')
+            ->add('endDate')    
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -54,6 +60,9 @@ class ProjectAdmin extends Admin
             ->add('isInternal')
             ->add('createdAt')
             ->add('endAt')
+            ->add('am')
+            ->add('startDate')
+            ->add('endDate')
         ;
     }
 
@@ -67,6 +76,9 @@ class ProjectAdmin extends Admin
             ->add('isInternal')
             ->add('createdAt')
             ->add('endAt')
+            ->add('am')
+            ->add('startDate')
+            ->add('endDate')
         ;
     }
 }

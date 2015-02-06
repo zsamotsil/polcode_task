@@ -16,16 +16,22 @@ class AM
 
     /**
      * @var string
+     * @Assert\NotBlank()
      */
     private $firstName;
 
     /**
      * @var string
+     * @Assert\NotBlank()
      */
     private $lastName;
 
     /**
      * @var string
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.",
+     *     checkMX = true
+     * )
      */
     private $email;
 

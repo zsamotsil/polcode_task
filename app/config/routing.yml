@@ -1,7 +1,15 @@
 polcode_recruitment:
     resource: "@PolcodeRecruitmentBundle/Resources/config/routing.xml"
     prefix:   /
+    
+api_employees:
+    path:      /api
+    defaults:  { _controller: @PolcodeRecruitmentBundle:Api:employeeList }  
 
+api_employees_for_am:
+    path:      /api/{am}
+    defaults:  { _controller: @PolcodeRecruitmentBundle:Api:employeeListForAm } 
+    
 # Internal routing configuration to handle ESI
 #_internal:
 #   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"

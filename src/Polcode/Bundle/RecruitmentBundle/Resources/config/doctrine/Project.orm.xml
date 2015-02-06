@@ -7,6 +7,9 @@
     <field name="name" type="string" column="name" length="255"/>
     <field name="createdAt" type="datetime" column="createdAt"/>
     <field name="endAt" type="datetime" column="endAt" nullable="true"/>
+    <field name="startDate" type="datetime" column="startDate"/>
+    <field name="endDate" type="datetime" column="endDate" nullable="true"/>
     <field name="isInternal" type="boolean" column="is_internal" />
+    <many-to-one field="am" target-entity="AM" />
   </entity>
 </doctrine-mapping>

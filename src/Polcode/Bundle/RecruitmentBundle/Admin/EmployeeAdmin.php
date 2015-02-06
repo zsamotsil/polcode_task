@@ -19,6 +19,7 @@ class EmployeeAdmin extends Admin
             ->add('firstName')
             ->add('lastName')
             ->add('email')
+            ->add('am')
         ;
     }
 
@@ -31,6 +32,7 @@ class EmployeeAdmin extends Admin
             ->add('firstName')
             ->add('lastName')
             ->add('email')
+            ->add('am')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -50,6 +52,7 @@ class EmployeeAdmin extends Admin
             ->add('firstName')
             ->add('lastName')
             ->add('email')
+            ->add('am')
         ;
     }
 
@@ -62,6 +65,7 @@ class EmployeeAdmin extends Admin
             ->add('firstName')
             ->add('lastName')
             ->add('email')
+            ->add('am')
         ;
     }
 }
